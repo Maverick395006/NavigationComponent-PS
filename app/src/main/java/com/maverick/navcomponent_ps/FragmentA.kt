@@ -23,6 +23,14 @@ class FragmentA : Fragment() {
         val view = binding.root
 
         /**
+         * bundle Arguments
+         */
+
+        val bundle = Bundle()
+        val t = binding.etData.text
+        bundle.putString("message", "bundle Data")
+
+        /**
          * Nav-controller need in way 1 & 2 only
          */
 
@@ -42,8 +50,8 @@ class FragmentA : Fragment() {
             /**
              * Way 3 [any of below works same]
              */
-//            it.findNavController().navigate(R.id.action_fragmentA_to_fragmentB)
-            it.findNavController().navigate(FragmentADirections.actionFragmentAToFragmentB())
+            it.findNavController().navigate(R.id.action_fragmentA_to_fragmentB, bundle)
+//            it.findNavController().navigate(FragmentADirections.actionFragmentAToFragmentB())
 //            val action = FragmentADirections.actionFragmentAToFragmentB()
 //            it.findNavController().navigate(action)
         }

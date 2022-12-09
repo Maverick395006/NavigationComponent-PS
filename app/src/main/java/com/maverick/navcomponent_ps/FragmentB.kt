@@ -22,11 +22,18 @@ class FragmentB : Fragment() {
         val view = binding.root
 
         /**
-         * NavArgs Instance
+         * get Data via NavArgs Instance
          */
 
-        val args: FragmentAArgs by navArgs()
-        binding.tvData.text = args.msg
+//        val args: FragmentAArgs by navArgs()
+//        binding.tvData.text = args.msg
+
+        /**
+         * get Data via bundle Arguments
+         */
+
+        binding.tvData.text = arguments?.get("message").toString()
+
         /**
          *  Instance of NavController
          */
