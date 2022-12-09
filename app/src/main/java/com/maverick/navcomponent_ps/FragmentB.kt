@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.navArgs
 import com.maverick.navcomponent_ps.databinding.FragmentBBinding
 
 class FragmentB : Fragment() {
@@ -20,7 +21,18 @@ class FragmentB : Fragment() {
         _binding = FragmentBBinding.inflate(inflater, container, false)
         val view = binding.root
 
-        val navController = activity?.let { Navigation.findNavController(it,R.id.fragmentContainerView) }
+        /**
+         * NavArgs Instance
+         */
+
+        val args: FragmentAArgs by navArgs()
+        binding.tvData.text = args.msg
+        /**
+         *  Instance of NavController
+         */
+
+        val navController =
+            activity?.let { Navigation.findNavController(it, R.id.fragmentContainerView) }
         binding.btnB.setOnClickListener {
             /**
              * Way 1

@@ -13,6 +13,10 @@
         <action
             android:id="@+id/action_fragmentA_to_fragmentB"
             app:destination="@id/fragmentB" />
+        <argument
+            android:name="msg"
+            android:defaultValue="hello world"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/fragmentB"

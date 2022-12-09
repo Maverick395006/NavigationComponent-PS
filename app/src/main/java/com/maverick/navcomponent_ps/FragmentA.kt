@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
+import androidx.navigation.fragment.navArgs
 import com.maverick.navcomponent_ps.databinding.FragmentABinding
 
 class FragmentA : Fragment() {
