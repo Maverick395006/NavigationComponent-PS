@@ -20,9 +20,18 @@ class FragmentA : Fragment() {
         _binding = FragmentABinding.inflate(inflater, container, false)
         val view = binding.root
 
-        val navController = activity?.let { Navigation.findNavController(it,R.id.fragmentContainerView) }
+        val navController =
+            activity?.let { Navigation.findNavController(it, R.id.fragmentContainerView) }
         binding.btnA.setOnClickListener {
-            navController?.navigate(R.id.action_fragmentA_to_fragmentB)
+            /**
+             * Way 1
+             */
+//            navController?.navigate(R.id.action_fragmentA_to_fragmentB)
+            /**
+             * Way 2
+             */
+            val action = FragmentADirections.actionFragmentAToFragmentB()
+            navController?.navigate(action)
         }
 
         return view
