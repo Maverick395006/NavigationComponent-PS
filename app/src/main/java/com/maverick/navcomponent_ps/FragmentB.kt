@@ -22,7 +22,15 @@ class FragmentB : Fragment() {
 
         val navController = activity?.let { Navigation.findNavController(it,R.id.fragmentContainerView) }
         binding.btnB.setOnClickListener {
-            navController?.navigate(R.id.action_fragmentB_to_fragmentA)
+            /**
+             * Way 1
+             */
+//            navController?.navigate(R.id.action_fragmentB_to_fragmentA)
+            /**
+             * Way 2
+             */
+            val action = FragmentBDirections.actionFragmentBToFragmentA()
+            navController?.navigate(action)
         }
 
         return view

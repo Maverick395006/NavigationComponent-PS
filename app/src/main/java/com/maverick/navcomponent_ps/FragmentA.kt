@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import com.maverick.navcomponent_ps.databinding.FragmentABinding
 
 class FragmentA : Fragment() {
@@ -20,8 +21,13 @@ class FragmentA : Fragment() {
         _binding = FragmentABinding.inflate(inflater, container, false)
         val view = binding.root
 
-        val navController =
-            activity?.let { Navigation.findNavController(it, R.id.fragmentContainerView) }
+        /**
+         * Nav-controller need in way 1 & 2 only
+         */
+
+//        val navController =
+//            activity?.let { Navigation.findNavController(it, R.id.fragmentContainerView) }
+
         binding.btnA.setOnClickListener {
             /**
              * Way 1
@@ -30,8 +36,15 @@ class FragmentA : Fragment() {
             /**
              * Way 2
              */
-            val action = FragmentADirections.actionFragmentAToFragmentB()
-            navController?.navigate(action)
+//            val action = FragmentADirections.actionFragmentAToFragmentB()
+//            navController?.navigate(action)
+            /**
+             * Way 3 [any of below works same]
+             */
+//            it.findNavController().navigate(R.id.action_fragmentA_to_fragmentB)
+            it.findNavController().navigate(FragmentADirections.actionFragmentAToFragmentB())
+//            val action = FragmentADirections.actionFragmentAToFragmentB()
+//            it.findNavController().navigate(action)
         }
 
         return view
