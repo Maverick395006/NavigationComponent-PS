@@ -12,7 +12,9 @@
         tools:layout="@layout/fragment_a">
         <action
             android:id="@+id/action_fragmentA_to_fragmentB"
-            app:destination="@id/fragmentB" />
+            app:destination="@id/fragmentB"
+            app:enterAnim="@android:anim/slide_in_left"
+            app:exitAnim="@android:anim/slide_out_right" />
         <argument
             android:name="msg"
             android:defaultValue="hello world"
